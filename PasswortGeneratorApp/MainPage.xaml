@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PasswortGeneratorApp.MainPage"
+             BackgroundColor="#F2F2F7"
+             Shell.NavBarIsVisible="False">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16" MaximumWidthRequest="480">
+
+            <Label Text="Passwort" FontSize="34" FontAttributes="Bold" TextColor="Black" />
+
+            <Border BackgroundColor="White" StrokeThickness="0" Padding="20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="16" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="10">
+                    <Label x:Name="PasswortLabel" Text="Tippe auf Generieren" FontFamily="Consolas"
+                           FontSize="22" TextColor="Black" HorizontalTextAlignment="Center" />
+                    <Label x:Name="StaerkeLabel" Text="" FontSize="15" TextColor="#8E8E93"
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border BackgroundColor="White" StrokeThickness="0" Padding="20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="16" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="14">
+                    <Label x:Name="LaengeLabel" Text="Länge: 16" FontSize="17" TextColor="Black" />
+                    <Slider x:Name="LaengeSlider" Minimum="8" Maximum="64" Value="16"
+                            MinimumTrackColor="#007AFF" ValueChanged="OnLaengeChanged" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Großbuchstaben" FontSize="17" TextColor="Black" VerticalOptions="Center" />
+                        <Switch x:Name="GrossSwitch" Grid.Column="1" IsToggled="True" OnColor="#34C759" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Zahlen" FontSize="17" TextColor="Black" VerticalOptions="Center" />
+                        <Switch x:Name="ZahlenSwitch" Grid.Column="1" IsToggled="True" OnColor="#34C759" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Sonderzeichen" FontSize="17" TextColor="Black" VerticalOptions="Center" />
+                        <Switch x:Name="SonderSwitch" Grid.Column="1" IsToggled="True" OnColor="#34C759" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Generieren" Clicked="OnGenerierenClicked" BackgroundColor="#007AFF"
+                    TextColor="White" FontAttributes="Bold" CornerRadius="14" HeightRequest="50" />
+            <Button Text="Kopieren" Clicked="OnKopierenClicked" BackgroundColor="White"
+                    TextColor="#007AFF" CornerRadius="14" HeightRequest="50" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
